@@ -1,0 +1,20 @@
+name: Publish to Registry
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and push image
+        uses: docker/build-push-action@v1.1.1
+        with:
+          username: khaosdoctor
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+          repository: khaosdoctor/zaqar
+          tag_with_ref: true
+          tags: latest
