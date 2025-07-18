@@ -13,8 +13,8 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v1.1.1
         with:
-          username: khaosdoctor
+          username: franaraujo77
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
-          repository: khaosdoctor/zaqar
+          repository: franaraujo77/custom-litellm
           tag_with_ref: true
           tags: latest
